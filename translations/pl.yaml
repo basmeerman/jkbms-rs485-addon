@@ -3,7 +3,7 @@ configuration:
   # Sekcja konfiguracji JK-BMS
   jkbms_path:
     name: "🟪 JK-BMS → Ścieżka portu szeregowego"
-    description: "Ścieżka do portu szeregowego, do którego podłączony jest JK-BMS (Menu: Ustawienia-Sprzęt-Cały sprzęt)."
+    description: "Ścieżka do portu szeregowego, do którego podłączony jest JK-BMS (Menu: Ustawienia-Sprzęt-Cały sprzęt). Leave blank when using a TCP gateway — enable 'use_gateway' and set 'gateway_ip_port' instead."
     
   jkbms_count:
     name: "🟪 JK-BMS → Liczba modułów BMS"

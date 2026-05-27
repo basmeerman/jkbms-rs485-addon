@@ -1,3 +1,14 @@
+## v3.7.8 — Serial port now optional; transport validated at startup
+
+### 🛠️ Changed
+- `jkbms_path` is now optional. When using a TCP gateway, leave it blank and the add-on will skip serial initialisation entirely instead of spamming `serial port /dev/JKBMS-Fake error: No such file or directory` in the log.
+- When `jkbms_path` IS set, the runtime `flows.json` is now patched with the real device path before Node-RED loads it, so the one-time `/dev/JKBMS-Fake` open error on first start is gone for serial users too.
+
+### ✨ Added
+- Transport configuration is validated at container start. The add-on fails to start (with a clear, actionable message in the log) when neither a serial device nor a TCP gateway is configured, or when `use_gateway` is enabled but `gateway_ip_port` is empty. Home Assistant add-on schemas don't support cross-field validation; fail-fast at startup is the closest equivalent to an error-on-save.
+
+##  _______________________________________________________
+
 ## v3.7.7 — Security: per-install Node-RED credentials
 
 ### 🔒 Security

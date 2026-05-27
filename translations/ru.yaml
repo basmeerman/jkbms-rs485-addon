@@ -3,7 +3,7 @@ configuration:
   # Раздел конфигурации JK-BMS
   jkbms_path:
     name: "🟪 JK-BMS → Путь к последовательному порту"
-    description: "Путь к последовательному порту, к которому подключена JK-BMS (Меню: Настройки-Оборудование-Все оборудование)."
+    description: "Путь к последовательному порту, к которому подключена JK-BMS (Меню: Настройки-Оборудование-Все оборудование). Leave blank when using a TCP gateway — enable 'use_gateway' and set 'gateway_ip_port' instead."
     
   jkbms_count:
     name: "🟪 JK-BMS → Количество модулей BMS"
