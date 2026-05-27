@@ -1,3 +1,11 @@
+## v4.0.1 — Hotfix: force HA Discovery re-emission after v4.0.0 rename
+
+### 🐞 Bug fix
+- After upgrading from v3.x to v4.0.0, the per-BMS `discoverySent_BMS_<n>` flags (persisted in flow context across restarts) prevented the discovery handler from re-emitting MQTT Discovery messages for the renamed English topics. The v4.0.0 cleanup successfully deregistered the OLD French entities, but the NEW English ones were never registered — Home Assistant ended up with **no** BMS entities for the renamed metrics, and the dashboards rendered empty.
+- v4.0.1 extends the one-shot cleanup function to also clear `discoverySent_BMS_*` flags on first start. The next incoming frame re-emits discovery with the new English topic names. Gated by a separate flag (`rediscover_after_rename_done_v4_0_1`) so it runs once per install regardless of v4.0.0 state.
+
+##  _______________________________________________________
+
 ## v4.0.0 — English MQTT topic names (breaking)
 
 ### 💥 Breaking
