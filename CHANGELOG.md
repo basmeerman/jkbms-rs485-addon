@@ -1,3 +1,36 @@
+## v4.0.0 — English MQTT topic names (breaking)
+
+### 💥 Breaking
+- Renamed 15 MQTT topic / entity suffixes from French (or mixed) to English for readability. **All entity IDs derived from these change.** Custom HA automations and Lovelace cards referencing the old French names will need to be updated.
+
+| Old MQTT topic | New MQTT topic |
+|---|---|
+| `Tension_Totale_volt` | `Total_Voltage_V` |
+| `Courant_total` | `Total_Current_A` |
+| `Puissance_Totale` | `Total_Power_W` |
+| `Capacite_batterie_Ah` | `Battery_Capacity_Ah` |
+| `Capacite_restante_Ah` | `Remaining_Capacity_Ah` |
+| `Cycle_Capacite_Ah` | `Cycle_Capacity_Ah` |
+| `Nombre_Cycle` | `Cycle_Count` |
+| `Sonde_<N>_temp` (N=1..4) | `Probe_<N>_temp` |
+| `Balance_courant` | `Balance_current` |
+| `Switch_Decharge` | `Switch_Discharge` |
+| `SOC_pourcentage` | `SOC_percentage` |
+| `SOH_pourcentage` | `SOH_percentage` |
+
+`Balance_Action` is unchanged.
+
+### ✨ Added
+- Automatic one-shot cleanup on first start of v4.0.0: the add-on publishes empty retained payloads to the OLD discovery config topics for each configured BMS (and `BMS_master` if broadcasting), so Home Assistant deregisters the deprecated entities cleanly and the MQTT broker drops the retained discovery messages. The flag `cleanup_french_topics_done_v4` in flow context prevents it from running again. Log line: `Deprovisioned <N> legacy French discovery topics (v4.0.0 cleanup; one-shot)`.
+
+### ⬆️  Upgrade notes
+- After upgrade, the OLD French entity IDs (e.g. `sensor.bms_1_tension_totale_volt`) disappear from Home Assistant. The NEW English entity IDs (e.g. `sensor.bms_1_total_voltage_v`) appear.
+- **Companion dashboards** in `basmeerman/jkbms-rs485-addon-dashboards` are updated in lockstep — pull the latest version and reload Lovelace.
+- HA history graphs for the old entity IDs will appear empty (Recorder data is preserved under the old `entity_id` but the entity is gone). If long-running history continuity matters, use HA's "rename entity" feature **before** upgrading to migrate the recorder history to the new entity_id.
+- Any custom automations / scripts you have referencing the old French entity names will break until updated. The rename table above lists every change.
+
+##  _______________________________________________________
+
 ## v3.7.8 — Serial port now optional; transport validated at startup
 
 ### 🛠️ Changed

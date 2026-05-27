@@ -114,23 +114,23 @@
 | 108 | 0x6C | 2 | int16le | Cell_15_ohm_R | Résistance cellule 15 (Ω) |
 | 110 | 0x6E | 2 | int16le | Cell_16_ohm_R | Résistance cellule 16 (Ω) |
 | 144 | 0x90 | 2 | int16le | Mos_temp_T | Température MOSFET (°C) |
-| 154 | 0x9A | 4 | uint32le | Puissance_Totale_W | Puissance totale (W) |
-| 158 | 0x9E | 4 | int32le | Courant_total_A | Courant total (A) |
-| 162 | 0xA2 | 2 | int16le | Sonde_1_temp_T | Température sonde 1 (°C) |
-| 164 | 0xA4 | 2 | int16le | Sonde_2_temp_T | Température sonde 2 (°C) |
-| 170 | 0xAA | 2 | int16le | Balance_courant_A | Courant d’équilibrage (A) |
+| 154 | 0x9A | 4 | uint32le | Total_Power_W_W | Puissance totale (W) |
+| 158 | 0x9E | 4 | int32le | Total_Current_A_A | Courant total (A) |
+| 162 | 0xA2 | 2 | int16le | Probe_1_temp_T | Température sonde 1 (°C) |
+| 164 | 0xA4 | 2 | int16le | Probe_2_temp_T | Température sonde 2 (°C) |
+| 170 | 0xAA | 2 | int16le | Balance_current_A | Courant d’équilibrage (A) |
 | 172 | 0xAC | 1 | byte | Balance_Action_B | Action équilibrage (bitfield/état) |
-| 173 | 0xAD | 1 | uint8 | SOC_pourcentage_P | État de charge (SOC, %) |
-| 174 | 0xAE | 4 | int32le | Capacite_restante_Ah | Capacité restante (Ah) |
-| 178 | 0xB2 | 4 | int32le | Capacite_batterie_Ah | Capacité totale batterie (Ah) |
-| 182 | 0xB6 | 4 | int32le | Nombre_Cycle_N | Nombre de cycles |
-| 186 | 0xBA | 4 | int32le | Cycle_Capacite_Ah | Capacité par cycle (Ah) |
-| 190 | 0xBE | 1 | uint8 | SOH_pourcentage_P | État de santé (SOH, %) |
+| 173 | 0xAD | 1 | uint8 | SOC_percentage_P | État de charge (SOC, %) |
+| 174 | 0xAE | 4 | int32le | Remaining_Capacity_Ah | Capacité restante (Ah) |
+| 178 | 0xB2 | 4 | int32le | Battery_Capacity_Ah | Capacité totale batterie (Ah) |
+| 182 | 0xB6 | 4 | int32le | Cycle_Count_N | Nombre de cycles |
+| 186 | 0xBA | 4 | int32le | Cycle_Capacity_Ah | Capacité par cycle (Ah) |
+| 190 | 0xBE | 1 | uint8 | SOH_percentage_P | État de santé (SOH, %) |
 | 194 | 0xC2 | 4 | uint32le | Total_runtime_S | Temps total de fonctionnement (s) |
 | 198 | 0xC6 | 1 | byte | Switch_Charge_B | État interrupteur charge |
-| 199 | 0xC7 | 1 | byte | Switch_Decharge_B | État interrupteur décharge |
+| 199 | 0xC7 | 1 | byte | Switch_Discharge_B | État interrupteur décharge |
 | 200 | 0xC8 | 1 | byte | Switch_Balance_B | État interrupteur équilibrage |
-| 234 | 0xEA | 2 | uint16le | Tension_Totale_volt_V | Tension totale du pack (V) |
-| 254 | 0xFE | 2 | int16le | Sonde_3_temp_T | Température sonde 3 (°C) |
-| 258 | 0x102 | 2 | int16le | Sonde_4_temp_T | Température sonde 4 (°C) |
+| 234 | 0xEA | 2 | uint16le | Total_Voltage_V_V | Tension totale du pack (V) |
+| 254 | 0xFE | 2 | int16le | Probe_3_temp_T | Température sonde 3 (°C) |
+| 258 | 0x102 | 2 | int16le | Probe_4_temp_T | Température sonde 4 (°C) |
 

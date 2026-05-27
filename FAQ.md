@@ -123,7 +123,7 @@
 
 ---
 
-### Switch_Charge and Switch_Decharge became unavailable after some update
+### Switch_Charge and Switch_Discharge became unavailable after some update
 
 **Issue #67** | 💬 2 comments | 👍 0 reactions
 

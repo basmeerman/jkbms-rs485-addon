@@ -21,37 +21,37 @@ Real-time data published on simple topics:
 - `{BMS_NAME}/Mos_temp` : MOSFET temperature in °C
   - Example: `BMS_1/Mos_temp` → `19.3`
 - `{BMS_NAME}/Sonde_X_temp` : Temperature probe readings (X from 1 to 4) in °C
-  - Example: `BMS_1/Sonde_1_temp` → `21.7`
+  - Example: `BMS_1/Probe_1_temp` → `21.7`
 
 ### Power and Current
-- `{BMS_NAME}/Puissance_Totale` : Total power in Watts
-  - Example: `BMS_1/Puissance_Totale` → `447.814`
-- `{BMS_NAME}/Courant_total` : Total current in Amperes (negative = discharge)
-  - Example: `BMS_1/Courant_total` → `-8.8`
-- `{BMS_NAME}/Tension_Totale_volt` : Total battery voltage in Volts
-  - Example: `BMS_1/Tension_Totale_volt` → `53.31`
+- `{BMS_NAME}/Total_Power_W` : Total power in Watts
+  - Example: `BMS_1/Total_Power_W` → `447.814`
+- `{BMS_NAME}/Total_Current_A` : Total current in Amperes (negative = discharge)
+  - Example: `BMS_1/Total_Current_A` → `-8.8`
+- `{BMS_NAME}/Total_Voltage_V` : Total battery voltage in Volts
+  - Example: `BMS_1/Total_Voltage_V` → `53.31`
 
 ### Balancing
-- `{BMS_NAME}/Balance_courant` : Balancing current in Amperes
-  - Example: `BMS_1/Balance_courant` → `0`
+- `{BMS_NAME}/Balance_current` : Balancing current in Amperes
+  - Example: `BMS_1/Balance_current` → `0`
 - `{BMS_NAME}/Balance_Action` : Balancing state (0 = inactive, 1 = active)
   - Example: `BMS_1/Balance_Action` → `0`
 
 ### State of Charge
-- `{BMS_NAME}/SOC_pourcentage` : State of charge in %
-  - Example: `BMS_1/SOC_pourcentage` → `86`
-- `{BMS_NAME}/Capacite_restante_Ah` : Remaining capacity in Ah
-  - Example: `BMS_1/Capacite_restante_Ah` → `240.78`
-- `{BMS_NAME}/Capacite_batterie_Ah` : Total battery capacity in Ah
-  - Example: `BMS_1/Capacite_batterie_Ah` → `280`
-- `{BMS_NAME}/SOH_pourcentage` : State of health in %
-  - Example: `BMS_1/SOH_pourcentage` → `100`
+- `{BMS_NAME}/SOC_percentage` : State of charge in %
+  - Example: `BMS_1/SOC_percentage` → `86`
+- `{BMS_NAME}/Remaining_Capacity_Ah` : Remaining capacity in Ah
+  - Example: `BMS_1/Remaining_Capacity_Ah` → `240.78`
+- `{BMS_NAME}/Battery_Capacity_Ah` : Total battery capacity in Ah
+  - Example: `BMS_1/Battery_Capacity_Ah` → `280`
+- `{BMS_NAME}/SOH_percentage` : State of health in %
+  - Example: `BMS_1/SOH_percentage` → `100`
 
 ### Cycles and History
-- `{BMS_NAME}/Nombre_Cycle` : Number of charge/discharge cycles
-  - Example: `BMS_1/Nombre_Cycle` → `90`
-- `{BMS_NAME}/Cycle_Capacite_Ah` : Total cycled capacity in Ah
-  - Example: `BMS_1/Cycle_Capacite_Ah` → `25292.242`
+- `{BMS_NAME}/Cycle_Count` : Number of charge/discharge cycles
+  - Example: `BMS_1/Cycle_Count` → `90`
+- `{BMS_NAME}/Cycle_Capacity_Ah` : Total cycled capacity in Ah
+  - Example: `BMS_1/Cycle_Capacity_Ah` → `25292.242`
 - `{BMS_NAME}/Total_runtime` : Total runtime in seconds
   - Example: `BMS_1/Total_runtime` → `34906707`
 - `{BMS_NAME}/Total_runtime_formatted` : Formatted runtime (DDDdHHhMMm)
@@ -60,8 +60,8 @@ Real-time data published on simple topics:
 ### State Switches
 - `{BMS_NAME}/Switch_Charge` : Charge switch state (0 = off, 1 = on)
   - Example: `BMS_1/Switch_Charge` → `1`
-- `{BMS_NAME}/Switch_Decharge` : Discharge switch state (0 = off, 1 = on)
-  - Example: `BMS_1/Switch_Decharge` → `1`
+- `{BMS_NAME}/Switch_Discharge` : Discharge switch state (0 = off, 1 = on)
+  - Example: `BMS_1/Switch_Discharge` → `1`
 - `{BMS_NAME}/Switch_Balance` : Balancing state (0 = off, 1 = on)
   - Example: `BMS_1/Switch_Balance` → `0`
 
@@ -275,7 +275,7 @@ BMS_1/#
 BMS_1/Cell_+_volt
 
 # A specific sensor
-BMS_1/SOC_pourcentage
+BMS_1/SOC_percentage
 ```
 
 ### Modifying Parameters
@@ -331,25 +331,25 @@ The new value will be confirmed on the corresponding `/state` topic.
 | `{BMS}/Cell_15_ohm` | Cell 15 internal resistance (Ω) |
 | `{BMS}/Cell_16_ohm` | Cell 16 internal resistance (Ω) |
 | `{BMS}/Mos_temp` | MOSFET temperature (°C) |
-| `{BMS}/Sonde_1_temp` | Temperature probe 1 (°C) |
-| `{BMS}/Sonde_2_temp` | Temperature probe 2 (°C) |
-| `{BMS}/Sonde_3_temp` | Temperature probe 3 (°C) |
-| `{BMS}/Sonde_4_temp` | Temperature probe 4 (°C) |
-| `{BMS}/Puissance_Totale` | Total power (W) |
-| `{BMS}/Courant_total` | Total current (A) |
-| `{BMS}/Tension_Totale_volt` | Total voltage (V) |
-| `{BMS}/Balance_courant` | Balancing current (A) |
+| `{BMS}/Probe_1_temp` | Temperature probe 1 (°C) |
+| `{BMS}/Probe_2_temp` | Temperature probe 2 (°C) |
+| `{BMS}/Probe_3_temp` | Temperature probe 3 (°C) |
+| `{BMS}/Probe_4_temp` | Temperature probe 4 (°C) |
+| `{BMS}/Total_Power_W` | Total power (W) |
+| `{BMS}/Total_Current_A` | Total current (A) |
+| `{BMS}/Total_Voltage_V` | Total voltage (V) |
+| `{BMS}/Balance_current` | Balancing current (A) |
 | `{BMS}/Balance_Action` | Balancing action (0/1) |
-| `{BMS}/SOC_pourcentage` | State of charge (%) |
-| `{BMS}/Capacite_restante_Ah` | Remaining capacity (Ah) |
-| `{BMS}/Capacite_batterie_Ah` | Battery capacity (Ah) |
-| `{BMS}/SOH_pourcentage` | State of health (%) |
-| `{BMS}/Nombre_Cycle` | Cycle count |
-| `{BMS}/Cycle_Capacite_Ah` | Total cycled capacity (Ah) |
+| `{BMS}/SOC_percentage` | State of charge (%) |
+| `{BMS}/Remaining_Capacity_Ah` | Remaining capacity (Ah) |
+| `{BMS}/Battery_Capacity_Ah` | Battery capacity (Ah) |
+| `{BMS}/SOH_percentage` | State of health (%) |
+| `{BMS}/Cycle_Count` | Cycle count |
+| `{BMS}/Cycle_Capacity_Ah` | Total cycled capacity (Ah) |
 | `{BMS}/Total_runtime` | Total runtime (s) |
 | `{BMS}/Total_runtime_formatted` | Total runtime formatted |
 | `{BMS}/Switch_Charge` | Charge switch (0/1) |
-| `{BMS}/Switch_Decharge` | Discharge switch (0/1) |
+| `{BMS}/Switch_Discharge` | Discharge switch (0/1) |
 | `{BMS}/Switch_Balance` | Balance switch (0/1) |
 | `{BMS}/Heating` | Heating status (0/1) |
 | `{BMS}/Heating_Current` | Heating current (A) |
