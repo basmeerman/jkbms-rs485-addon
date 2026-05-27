@@ -199,6 +199,20 @@ Get two pre-configured, professional dashboards:
 - Multi-BMS comparison views
 - Mobile-optimized layout
 
+### Which dashboard matches your add-on mode?
+
+| Dashboard | `bms_broadcasting: false` (Master mode, default) | `bms_broadcasting: true` (Listening mode) |
+|---|:---:|:---:|
+| `JKBMS-Dashboard-full-V2.yaml` | ✅ Use this | ⚠️ Only works if a slave BMS happens to use address `1` |
+| `JKBMS-Dashboard-Master.yaml` | ❌ Renders entirely as `Unavailable` | ✅ Use this |
+| `JKBMS-Dashboard-lite.yaml` | ✅ Up to 4 slave BMSes by address | ✅ Slaves arrive via the master's broadcasts |
+
+The Master dashboard depends on `sensor.bms_master_*` entities, which are only published when one BMS is wired as the RS485 bus master (DIP switches `0000`) and `bms_broadcasting: true` is set. See the [companion dashboards repo's mode analysis](https://github.com/basmeerman/jkbms-rs485-addon-dashboards/blob/analysis/master-broadcast-mode/docs/master-broadcast-mode.md) for the code-level evidence.
+
+### Entity-name rename RFC
+
+The dashboards also currently inherit French snake_case names from this add-on's MQTT topics (e.g. `sensor.bms_1_tension_totale_volt`, `…_capacite_batterie_ah`). A proposed three-phase deprecation policy to rename them to English aliases without breaking existing installations is tracked in **[#2](https://github.com/basmeerman/jkbms-rs485-addon/issues/2)** — feedback welcome before any code change.
+
 ---
 
 ## 📊 Home Assistant Integration
