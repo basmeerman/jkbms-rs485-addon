@@ -182,6 +182,22 @@ Installing this add-on is no different from installing any other Home Assistant 
 You must have an mqtt broker (you can install it via the addon shop. [Addon Mosquitto broker][addon-mqtt])
 You will then need to add mqtt integration (see mqtt doc)
 
+### Upgrading from v3.x to v4.0.0 — entity rename
+
+In **v4.0.0** the MQTT topic names were renamed from French (or mixed) to English:
+`Tension_Totale_volt` → `Total_Voltage_V`, `Courant_total` → `Total_Current_A`,
+`Sonde_<N>_temp` → `Probe_<N>_temp`, `Switch_Decharge` → `Switch_Discharge`,
+`SOC_pourcentage` → `SOC_percentage`, and similar (see CHANGELOG for the full
+table). Every HA entity ID derived from these changes.
+
+On first start after the upgrade, the add-on automatically publishes empty
+retained MQTT discovery payloads for the OLD topic names so Home Assistant
+deregisters them cleanly. You'll see the new English entity IDs appear
+(e.g. `sensor.bms_1_total_voltage_v`). Update any custom automations or
+dashboards that referenced the old French names. The companion dashboards
+in `basmeerman/jkbms-rs485-addon-dashboards` are updated in lockstep — pull
+the latest version and reload Lovelace.
+
 ---
 ## cable assembly
 
