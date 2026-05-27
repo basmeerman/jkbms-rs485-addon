@@ -3,7 +3,7 @@ configuration:
   # Sección de configuración de JK-BMS
   jkbms_path:
     name: "🟪 JK-BMS → Ruta del puerto serie"
-    description: "Ruta al puerto serie donde está conectado el JK-BMS (Menú: Ajustes-Hardware-Todo el hardware)."
+    description: "Ruta al puerto serie donde está conectado el JK-BMS (Menú: Ajustes-Hardware-Todo el hardware). Leave blank when using a TCP gateway — enable 'use_gateway' and set 'gateway_ip_port' instead."
     
   jkbms_count:
     name: "🟪 JK-BMS → Número de módulos BMS"

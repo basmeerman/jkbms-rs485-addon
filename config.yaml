@@ -1,6 +1,6 @@
 ---
 name: "JK-BMS wired management"
-version: 3.7.7
+version: 3.7.8
 slug: "smartphoton_jkbms"
 description: JK-BMS Management via RS485 & CAN bus or TCP/IP Gateway
 url: https://domosimple.eu/forum/thread-917.html
@@ -32,7 +32,7 @@ map:
 
 options:
   # JK-BMS Configuration
-  jkbms_path: "/dev/serial/by-id/usb-xxxx_USB_Serial-abcdefghij"
+  jkbms_path: ""
   jkbms_count: 1
   use_gateway: false
   gateway_ip_port: "192.168.1.100:5000"
@@ -55,7 +55,7 @@ options:
 
 schema:
   # JK-BMS Configuration
-  jkbms_path: str
+  jkbms_path: str?
   jkbms_count: int(1,15)?
   use_gateway: bool
   gateway_ip_port: str?

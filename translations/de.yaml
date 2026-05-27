@@ -3,7 +3,7 @@ configuration:
   # JK-BMS Konfigurationsabschnitt
   jkbms_path:
     name: "🟪 JK-BMS → Serieller Pfad"
-    description: "Pfad zur seriellen Schnittstelle, an der das JK-BMS angeschlossen ist (Menü: Einstellungen-Hardware-Alle Hardware)."
+    description: "Pfad zur seriellen Schnittstelle, an der das JK-BMS angeschlossen ist (Menü: Einstellungen-Hardware-Alle Hardware). Leave blank when using a TCP gateway — enable 'use_gateway' and set 'gateway_ip_port' instead."
     
   jkbms_count:
     name: "🟪 JK-BMS → Anzahl der BMS-Module"

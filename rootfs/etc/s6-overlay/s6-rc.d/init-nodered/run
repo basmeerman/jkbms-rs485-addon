@@ -5,6 +5,22 @@
 # Configure Node-RED avant exécution
 # ==============================================================================
 
+# Validate transport configuration before doing anything else.
+# HA add-on schemas don't support cross-field rules, so fail-fast here with
+# an actionable message in the add-on log if the user's options can never
+# produce a working setup.
+if bashio::config.true 'use_gateway'; then
+    if ! bashio::config.has_value 'gateway_ip_port'; then
+        bashio::exit.nok \
+            "use_gateway is enabled but 'gateway_ip_port' is empty. Set it (e.g. 192.168.1.100:502) in the add-on configuration and restart."
+    fi
+else
+    if ! bashio::config.has_value 'jkbms_path'; then
+        bashio::exit.nok \
+            "Neither a serial device nor a TCP gateway is configured. Either set 'jkbms_path' to your serial device, or enable 'use_gateway' and set 'gateway_ip_port'."
+    fi
+fi
+
 # Assure que la configuration existe
 if ! bashio::fs.directory_exists '/config/smartphoton_jkbms/'; then
     mkdir -p /config/smartphoton_jkbms/nodes \
@@ -57,3 +73,10 @@ if bashio::fs.file_exists "/config/package.json"; then
         node-red-contrib-home-assistant-ws \
         || bashio::log.warning "Failed un-installing conflicting packages"
 fi
+
+# Patch the runtime flows.json based on add-on options: either substitute the
+# real serial device path into the serial-port config node, or disable the
+# serial nodes entirely when running gateway-only.
+export NODE_PATH=/opt/node_modules
+node /etc/node-red/configure-transport.js \
+    || bashio::exit.nok "Failed to configure transport in flows.json"

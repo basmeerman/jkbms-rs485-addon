@@ -3,7 +3,7 @@ configuration:
   # Section de configuration du JK-BMS
   jkbms_path:
     name: "🟪 JK-BMS → Chemin du port série"
-    description: "Chemin vers le port série où le JK-BMS est connecté (Menu : Paramètres-Matériel-Tout le matériel)."
+    description: "Chemin vers le port série où le JK-BMS est connecté (Menu : Paramètres-Matériel-Tout le matériel). Leave blank when using a TCP gateway — enable 'use_gateway' and set 'gateway_ip_port' instead."
     
   jkbms_count:
     name: "🟪 JK-BMS → Nombre de modules BMS"
